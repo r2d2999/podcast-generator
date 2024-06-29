@@ -16,11 +16,9 @@ COPY entrypoint.sh /entrypoint.sh
 # Asegurarse de que el script tenga permisos de ejecución
 RUN chmod +x /entrypoint.sh
 
-# Agregar depuración
-RUN echo "feed.py exists:" && ls -l /usr/bin/feed.py
-RUN echo "entrypoint.sh exists:" && ls -l /entrypoint.sh
+# Agregar depuración para verificar la presencia de los archivos
+RUN echo "Verificando feed.py:" && ls -l /usr/bin/feed.py
+RUN echo "Verificando entrypoint.sh:" && ls -l /entrypoint.sh
 
 # Establecer el punto de entrada
 ENTRYPOINT ["/entrypoint.sh"]
-
-
